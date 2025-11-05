@@ -6,7 +6,7 @@ on:
     - cron: '0 */2 * * *'
   workflow_dispatch:  # Allow manual triggering
   push:
-    branches: [ main ]
+    branches: [ main, master ]
     paths: [ 'links.txt' ]
 
 jobs:
@@ -14,50 +14,113 @@ jobs:
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write  # This is crucial for writing back to the repo
+      contents: write  # Essential for writing back to repository
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        # Fetch all history for all branches and tags
-        fetch-depth: 0
+        fetch-depth: 0  # Fetch all history for proper git operations
     
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.x'
         cache: 'pip'
     
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install yt-dlp requests
+        pip install -r requirements.txt
+    
+    - name: Display Python info
+      run: |
+        python --version
+        pip list
     
     - name: Run video processor
+      id: processor
       run: |
         python video_processor.py
+        # Capture the exit code
+        echo "exit_code=$?" >> $GITHUB_OUTPUT
     
-    - name: Check for changes in output.json
-      id: check_changes
+    - name: Check if output.json was created/updated
+      id: check_file
       run: |
-        git add output.json
-        if git diff --staged --quiet; then
-          echo "changes=false" >> $GITHUB_OUTPUT
-          echo "📝 No changes detected in output.json"
+        if [ -f "output.json" ]; then
+          echo "file_exists=true" >> $GITHUB_OUTPUT
+          echo "📄 output.json exists"
+          
+          # Check if file has content
+          if [ -s "output.json" ]; then
+            echo "file_has_content=true" >> $GITHUB_OUTPUT
+            echo "📊 output.json has content"
+            
+            # Count entries in JSON
+            COUNT=$(python -c "import json; data = json.load(open('output.json')); print(len(data))")
+            echo "entries_count=$COUNT" >> $GITHUB_OUTPUT
+            echo "🔢 Found $COUNT entries in output.json"
+          else
+            echo "file_has_content=false" >> $GITHUB_OUTPUT
+            echo "⚠️ output.json is empty"
+          fi
         else
-          echo "changes=true" >> $GITHUB_OUTPUT
-          echo "🔄 Changes detected in output.json"
+          echo "file_exists=false" >> $GITHUB_OUTPUT
+          echo "❌ output.json not found"
         fi
     
-    - name: Commit and push changes
-      if: steps.check_changes.outputs.changes == 'true'
+    - name: Show file changes
+      if: steps.check_file.outputs.file_exists == 'true'
       run: |
+        echo "📋 Changes in output.json:"
+        git diff output.json || echo "No changes to show"
+    
+    - name: Commit and push changes
+      if: steps.check_file.outputs.file_has_content == 'true'
+      run: |
+        # Configure git
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git commit -m "🔄 Auto-update stream links [$(date -u +'%Y-%m-%d %H:%M UTC')]" -m "Automated update from GitHub Actions"
+        
+        # Add and commit changes
+        git add output.json
+        
+        # Create commit message with stats
+        ENTRIES_COUNT=${{ steps.check_file.outputs.entries_count }}
+        git commit -m "🔄 Auto-update: $ENTRIES_COUNT stream links [$(date -u +'%Y-%m-%d %H:%M UTC')]" \
+                  -m "Automated update from GitHub Actions workflow" \
+                  -m "Workflow run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        
+        # Push changes
         git push
+        echo "✅ Successfully committed and pushed changes"
       env:
-        # Use the default GitHub token with write permissions
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Create summary
+      if: always()
+      run: |
+        echo "## Workflow Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Repository:** ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Workflow run:** [#${{ github.run_number }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})" >> $GITHUB_STEP_SUMMARY
+        echo "**Triggered by:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "${{ steps.check_file.outputs.file_exists }}" = "true" ]; then
+          if [ "${{ steps.check_file.outputs.file_has_content }}" = "true" ]; then
+            echo "✅ **Status:** Successfully processed ${{ steps.check_file.outputs.entries_count }} stream links" >> $GITHUB_STEP_SUMMARY
+            echo "📊 **Entries:** ${{ steps.check_file.outputs.entries_count }}" >> $GITHUB_STEP_SUMMARY
+            echo "🕒 **Last updated:** $(date -u +'%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ **Status:** output.json was created but is empty" >> $GITHUB_STEP_SUMMARY
+          fi
+        else
+          echo "❌ **Status:** Failed to create output.json" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "---" >> $GITHUB_STEP_SUMMARY
+        echo "*Automatically generated by GitHub Actions*" >> $GITHUB_STEP_SUMMARY
