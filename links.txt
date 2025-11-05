@@ -1,52 +1,26 @@
 # Tamil Nursery Rhymes Collection
-# Classic and Popular Rhymes
+# These links will be processed every 2 hours to generate streamable URLs
 
-# ChuChu TV Tamil
+# Popular Tamil Nursery Rhymes
 https://www.youtube.com/watch?v=5IG1C8v9N8A
 https://www.youtube.com/watch?v=1dMG9sa8qUo
 https://www.youtube.com/watch?v=Y9vdZPz3_ss
-
-# Infobells Tamil
 https://www.youtube.com/watch?v=z5q5EaC7y_8
-https://www.youtube.com/watch?v=5IG1C8v9N8A
-https://www.youtube.com/watch?v=Y9vdZPz3_ss
-
-# Appu Series Tamil
 https://www.youtube.com/watch?v=JQxpR3cTv8U
 https://www.youtube.com/watch?v=8Z_l_cC1b_4
-https://www.youtube.com/watch?v=z5q5EaC7y_8
 
-# Tamil Kids Rhymes
-https://www.youtube.com/watch?v=1dMG9sa8qUo
+# Classic Tamil Children Songs
 https://www.youtube.com/watch?v=5IG1C8v9N8A
 https://www.youtube.com/watch?v=Y9vdZPz3_ss
+https://www.youtube.com/watch?v=z5q5EaC7y_8
+https://www.youtube.com/watch?v=1dMG9sa8qUo
+https://www.youtube.com/watch?v=JQxpR3cTv8U
+https://www.youtube.com/watch?v=8Z_l_cC1b_4
 
-# Popular Tamil Rhymes
-https://www.youtube.com/watch?v=z5q5EaC7y_8  # Nila Nila Odi Vaa
-https://www.youtube.com/watch?v=1dMG9sa8qUo  # Kutti Kutti Paadam
-https://www.youtube.com/watch?v=5IG1C8v9N8A  # Aatha Un Kovalai
-https://www.youtube.com/watch?v=Y9vdZPz3_ss  # Thottil Paattu
-
-# More Tamil Nursery Songs
-https://www.youtube.com/watch?v=JQxpR3cTv8U  # Chinna Chinna Vanna Kuyil
-https://www.youtube.com/watch?v=8Z_l_cC1b_4  # Malargalil Adum
-https://www.youtube.com/watch?v=z5q5EaC7y_8  # Poovil Vandu
-https://www.youtube.com/watch?v=1dMG9sa8qUo  # Kaatrile Paattu
-
-# Additional Tamil Kids Content
-https://www.youtube.com/watch?v=5IG1C8v9N8A  # Amma Amma Endru
-https://www.youtube.com/watch?v=Y9vdZPz3_ss  # Thanga Chinnam
-https://www.youtube.com/watch?v=JQxpR3cTv8U  # Kutti Chellam
-https://www.youtube.com/watch?v=8Z_l_cC1b_4  # Paapa Paattu
-
-# Traditional Tamil Rhymes
-https://www.youtube.com/watch?v=z5q5EaC7y_8  # Oonjalil Urugum
-https://www.youtube.com/watch?v=1dMG9sa8qUo  # Kai Veesi
-https://www.youtube.com/watch?v=5IG1C8v9N8A  # Aathaadi Aathaadi
-https://www.youtube.com/watch?v=Y9vdZPz3_ss  # Kuthu Vilakku
-
-# Modern Tamil Nursery Rhymes
-https://www.youtube.com/watch?v=JQxpR3cTv8U  # Bus Song Tamil
-https://www.youtube.com/watch?v=8Z_l_cC1b_4  # Alphabet Song Tamil
-https://www.youtube.com/watch?v=z5q5EaC7y_8  # Number Song Tamil
-https://www.youtube.com/watch?v=1dMG9sa8qUo  # Color Song Tamil
+# Additional Tamil Kids Rhymes
+https://www.youtube.com/watch?v=5IG1C8v9N8A
+https://www.youtube.com/watch?v=1dMG9sa8qUo
+https://www.youtube.com/watch?v=Y9vdZPz3_ss
+https://www.youtube.com/watch?v=z5q5EaC7y_8
+https://www.youtube.com/watch?v=JQxpR3cTv8U
+https://www.youtube.com/watch?v=8Z_l_cC1b_4
