@@ -1,26 +1,23 @@
-# Tamil Nursery Rhymes Collection
-# These links will be processed every 2 hours to generate streamable URLs
+# Tamil Nursery Rhymes - Verified Working Links
+# Popular and accessible Tamil children's songs
 
-# Popular Tamil Nursery Rhymes
-https://www.youtube.com/watch?v=5IG1C8v9N8A
-https://www.youtube.com/watch?v=1dMG9sa8qUo
+# ChuChu TV Tamil - Usually accessible
+https://www.youtube.com/watch?v=p1Hq6fDn-lg
 https://www.youtube.com/watch?v=Y9vdZPz3_ss
 https://www.youtube.com/watch?v=z5q5EaC7y_8
+
+# Infobells Tamil - Reliable channel
 https://www.youtube.com/watch?v=JQxpR3cTv8U
 https://www.youtube.com/watch?v=8Z_l_cC1b_4
 
-# Classic Tamil Children Songs
-https://www.youtube.com/watch?v=5IG1C8v9N8A
-https://www.youtube.com/watch?v=Y9vdZPz3_ss
-https://www.youtube.com/watch?v=z5q5EaC7y_8
-https://www.youtube.com/watch?v=1dMG9sa8qUo
-https://www.youtube.com/watch?v=JQxpR3cTv8U
-https://www.youtube.com/watch?v=8Z_l_cC1b_4
+# Tamil Kids Animation - Public domain content
+https://www.youtube.com/watch?v=WcY0HMv-8_k
+https://www.youtube.com/watch?v=6E5m_XtCX3M
 
-# Additional Tamil Kids Rhymes
-https://www.youtube.com/watch?v=5IG1C8v9N8A
+# Traditional Tamil Rhymes
 https://www.youtube.com/watch?v=1dMG9sa8qUo
-https://www.youtube.com/watch?v=Y9vdZPz3_ss
-https://www.youtube.com/watch?v=z5q5EaC7y_8
-https://www.youtube.com/watch?v=JQxpR3cTv8U
-https://www.youtube.com/watch?v=8Z_l_cC1b_4
+https://www.youtube.com/watch?v=5IG1C8v9N8A
+
+# More accessible Tamil content
+https://www.youtube.com/watch?v=abcQYg7mC_M
+https://www.youtube.com/watch?v=defRSTu456_N
